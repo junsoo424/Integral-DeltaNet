@@ -1,0 +1,29 @@
+# GDN-2 340M: 12 layers x 1536, trained on 15B FineWeb-Edu tokens.
+# Weights: gdn2-340m.pt.  Training recipe: configs/training/340m.yaml.
+
+# Backbone
+model_type: gdn2
+scale: 340m
+vocab_size: 32000
+hidden_size: 1536
+num_hidden_layers: 12
+intermediate_size: 2896
+norm_eps: 1.0e-05
+
+# Token mixer (GDN-2)
+num_heads: 12
+head_dim: 128
+expand_v: 1
+num_v_heads: null
+attn_mode: chunk
+use_short_conv: true
+conv_size: 4
+allow_neg_eigval: false
+output_gate: paper_swish_rmsnorm
+
+# Kernels and runtime (speed and memory only; the weights do not depend on them)
+gradient_checkpointing: true
+
+# Parameter counts, checked when the model is built
+expected_body_parameters: 339741840
+expected_parameters: 438045840

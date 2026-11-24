@@ -1,0 +1,31 @@
+# KDA 340M: 12 layers x 1536, trained on 15B FineWeb-Edu tokens.
+# Weights: kda-340m.pt.  Training recipe: configs/training/340m.yaml.
+
+# Backbone
+model_type: kda
+scale: 340m
+vocab_size: 32000
+hidden_size: 1536
+num_hidden_layers: 12
+intermediate_size: 3920
+norm_eps: 1.0e-05
+
+# Token mixer (KDA)
+num_heads: 12
+head_dim: 128
+expand_v: 1
+num_v_heads: null
+attn_mode: chunk
+use_short_conv: true
+conv_size: 4
+allow_neg_eigval: false
+output_gate: builtin_sigmoid_rmsnorm
+safe_gate: false
+lower_bound: null
+
+# Kernels and runtime (speed and memory only; the weights do not depend on them)
+gradient_checkpointing: true
+
+# Parameter counts, checked when the model is built
+expected_body_parameters: 339963024
+expected_parameters: 438267024

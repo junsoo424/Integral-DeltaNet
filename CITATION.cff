@@ -1,0 +1,32 @@
+cff-version: 1.2.0
+message: If you use this software, please cite the paper below.
+title: Integral DeltaNet
+authors:
+  - family-names: Oh
+    given-names: Junsoo
+  - family-names: Yun
+    given-names: Jihun
+  - family-names: Kim
+    given-names: Junhyuck
+  - family-names: Lyu
+    given-names: Hanbaek
+abstract: >-
+  Official implementation of Integral DeltaNet, a linear-attention layer that
+  keeps a slowly-integrated copy of its state and reads the two with a
+  channel-wise gate.
+preferred-citation:
+  type: article
+  title: >-
+    Integral DeltaNet: Improved Linear Attention with Adaptive Memory
+    Integration
+  authors:
+    - family-names: Oh
+      given-names: Junsoo
+    - family-names: Yun
+      given-names: Jihun
+    - family-names: Kim
+      given-names: Junhyuck
+    - family-names: Lyu
+      given-names: Hanbaek
+  journal: arXiv preprint
+  year: 2026

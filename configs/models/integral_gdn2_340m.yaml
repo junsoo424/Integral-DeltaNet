@@ -1,0 +1,49 @@
+# Integral GDN-2 340M: 12 layers x 1536, trained on 15B FineWeb-Edu tokens.
+# Weights: integral-gdn2-340m.pt.  Training recipe: configs/training/340m.yaml.
+
+# Backbone
+model_type: gdn2
+scale: 340m
+vocab_size: 32000
+hidden_size: 1536
+num_hidden_layers: 12
+intermediate_size: 2728
+norm_eps: 1.0e-05
+
+# Token mixer (GDN-2)
+num_heads: 12
+head_dim: 128
+expand_v: 1
+num_v_heads: null
+attn_mode: chunk
+use_short_conv: true
+conv_size: 4
+allow_neg_eigval: false
+output_gate: paper_swish_rmsnorm
+
+# Integral DeltaNet layer
+mixer_implementation: integral
+integration_readout_gate: true
+integration_gate_coupling: independent
+integration_gamma_gate: channel
+integration_lambda_gate: channel
+integration_gamma_rank: 128
+integration_gate_mode: learned
+integration_gate_bias_init: timescale
+integration_chi_min: 4.0
+integration_tau_gamma: 1024.0
+integration_tau_lambda: 1024.0
+
+# Kernels and runtime (speed and memory only; the weights do not depend on them)
+chunk_size: 16
+kernel_implementation: auto
+compile_precompute: true
+allow_approximate_fusions: true
+fuse_qkv_conv: true
+fuse_preprocess: false
+fuse_decay_gate: true
+gradient_checkpointing: true
+
+# Parameter counts, checked when the model is built
+expected_body_parameters: 339926160
+expected_parameters: 438230160

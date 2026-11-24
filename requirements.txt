@@ -1,0 +1,8 @@
+# Install a CUDA-enabled torch>=2.7 build before this file, and causal-conv1d
+# after it with --no-build-isolation; README's "Installation" section has both
+# commands.
+flash-linear-attention==0.5.2
+transformers>=4.56,<5
+datasets>=3.3,<6
+torchdata>=0.10,<0.13
+PyYAML>=6,<7

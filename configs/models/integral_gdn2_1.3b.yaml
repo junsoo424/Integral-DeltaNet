@@ -1,0 +1,50 @@
+# Integral GDN-2 1.3B: 18 layers x 2304, trained on 100B FineWeb-Edu tokens.
+# Weights: integral-gdn2-1.3b.pt.  Training recipe: configs/training/1.3b.yaml.
+
+# Backbone
+model_type: gdn2
+scale: 1.3b
+vocab_size: 32000
+hidden_size: 2304
+num_hidden_layers: 18
+intermediate_size: 6048
+norm_eps: 1.0e-05
+reference_shape: true  # the GDN-2 reference 1.3B shape: 16 x 128 heads on a 2304-wide model
+
+# Token mixer (GDN-2)
+num_heads: 16
+head_dim: 128
+expand_v: 1
+num_v_heads: null
+attn_mode: chunk
+use_short_conv: true
+conv_size: 4
+allow_neg_eigval: false
+output_gate: paper_swish_rmsnorm
+
+# Integral DeltaNet layer
+mixer_implementation: integral
+integration_readout_gate: true
+integration_gate_coupling: independent
+integration_gamma_gate: channel
+integration_lambda_gate: channel
+integration_gamma_rank: 128
+integration_gate_mode: learned
+integration_gate_bias_init: timescale
+integration_chi_min: 4.0
+integration_tau_gamma: 1024.0
+integration_tau_lambda: 1024.0
+
+# Kernels and runtime (speed and memory only; the weights do not depend on them)
+chunk_size: 32
+kernel_implementation: triton
+compile_precompute: false
+allow_approximate_fusions: false
+fuse_qkv_conv: true
+fuse_preprocess: false
+fuse_decay_gate: false
+gradient_checkpointing: true
+
+# Parameter counts, checked when the model is built
+expected_body_parameters: 1302861600
+expected_parameters: 1450317600

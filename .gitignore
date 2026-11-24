@@ -1,0 +1,13 @@
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+
+# Run outputs and caches live outside the checkout; see env.sh.
+runs/
+logs/
+*.pt
+*.log
+.triton-cache/
+

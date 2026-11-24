@@ -1,0 +1,30 @@
+# GDN-2 1.3B: 18 layers x 2304, trained on 100B FineWeb-Edu tokens.
+# Weights: gdn2-1.3b.pt.  Training recipe: configs/training/1.3b.yaml.
+
+# Backbone
+model_type: gdn2
+scale: 1.3b
+vocab_size: 32000
+hidden_size: 2304
+num_hidden_layers: 18
+intermediate_size: 6208
+norm_eps: 1.0e-05
+reference_shape: true  # the GDN-2 reference 1.3B shape: 16 x 128 heads on a 2304-wide model
+
+# Token mixer (GDN-2)
+num_heads: 16
+head_dim: 128
+expand_v: 1
+num_v_heads: null
+attn_mode: chunk
+use_short_conv: true
+conv_size: 4
+allow_neg_eigval: false
+output_gate: paper_swish_rmsnorm
+
+# Kernels and runtime (speed and memory only; the weights do not depend on them)
+gradient_checkpointing: true
+
+# Parameter counts, checked when the model is built
+expected_body_parameters: 1302640416
+expected_parameters: 1450096416
