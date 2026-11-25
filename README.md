@@ -1,10 +1,12 @@
 # Integral DeltaNet: Improved Linear Attention with Adaptive Memory Integration
 
-Official PyTorch implementation of **Integral DeltaNet: Improved Linear Attention
-with Adaptive Memory Integration**.
+Official PyTorch implementation of [**Integral DeltaNet: Improved Linear Attention
+with Adaptive Memory Integration**](https://arxiv.org/abs/2611.32063).
 
 [Junsoo Oh](https://junsoo424.github.io/), [Jihun Yun](https://abcdxyzpqrst.github.io/),
 [Junhyuck Kim](https://jhyuckkim.github.io/), [Hanbaek Lyu](https://www.hanbaeklyu.com/)
+
+[![arXiv](https://img.shields.io/badge/arXiv-2611.32063-b31b1b.svg)](https://arxiv.org/abs/2611.32063)
 
 ## 💡 Overview
 
@@ -174,7 +176,7 @@ of each backbone/Integral pair, and \* the best recurrent model.
 @article{oh2026integral,
   title   = {Integral DeltaNet: Improved Linear Attention with Adaptive Memory Integration},
   author  = {Oh, Junsoo and Yun, Jihun and Kim, Junhyuck and Lyu, Hanbaek},
-  journal = {arXiv preprint},
+  journal = {arXiv preprint arXiv:2611.32063},
   year    = {2026}
 }
 ```
